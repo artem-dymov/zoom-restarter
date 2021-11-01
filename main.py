@@ -1,11 +1,20 @@
 import psutil
+import time
 
-flag = False
 
-p = psutil.pids()
+while True:
 
-for i in p:
-    if psutil.Process(i).name() == 'Zoom.exe':
-        flag = True
+    try:
+        flag = False
+        p = psutil.pids()
 
-print(flag)
+        for i in p:
+            if psutil.Process(i).name() == 'Zoom.exe':
+                flag = True
+
+        print(flag)
+
+        time.sleep(10)
+
+    except Exception:
+        print("Error")
